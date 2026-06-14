@@ -1,0 +1,10 @@
+services:
+  glm-proxy:
+    build: .
+    ports:
+      - "${PORT:-8082}:8082"
+    env_file:
+      - .env
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+    restart: unless-stopped

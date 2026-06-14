@@ -1,0 +1,14 @@
+server:
+  host: 127.0.0.1
+  port: 8082
+
+upstream: https://api.z.ai/api/anthropic
+
+proxy_token: ""
+
+model_map:
+  claude-opus-4-8: glm-5.2
+  claude-sonnet-4-6: glm-4.6v
+  claude-haiku-4-5-20251001: glm-4.5-air
+
+default_model: glm-5.2

@@ -37,8 +37,8 @@ CFG = _load_config()
 UPSTREAM = CFG.get("upstream", "https://api.z.ai/api/anthropic")
 API_KEY = os.getenv("glmapikey") or os.getenv("ZAI_API_KEY")
 PROXY_TOKEN = CFG.get("proxy_token", "")
-LISTEN_HOST = CFG.get("server", {}).get("host", "127.0.0.1")
-LISTEN_PORT = int(CFG.get("server", {}).get("port", 8082))
+LISTEN_HOST = os.getenv("HOST", CFG.get("server", {}).get("host", "127.0.0.1"))
+LISTEN_PORT = int(os.getenv("PORT", str(CFG.get("server", {}).get("port", 8082))))
 
 MODEL_MAP: dict[str, str] = CFG.get("model_map", {
     "claude-opus-4-8": "glm-5.2",

@@ -2,7 +2,10 @@ services:
   glm-proxy:
     build: .
     ports:
-      - "${PORT:-8082}:8082"
+      - "8082:8082"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8082
     env_file:
       - .env
     volumes:
